@@ -417,7 +417,7 @@ XHookHttpRequest = window[XMLHTTP] = function() {
       if (window[FormData] && request.body instanceof window[FormData]) {
         request.body = request.body.fd;
       }
-      xhr.send(request.body);
+      xhr.send(JSON.stringify(request.body));
     };
     hooks = xhook.listeners(BEFORE);
     process = function() {
