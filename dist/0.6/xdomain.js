@@ -415,10 +415,9 @@ XHookHttpRequest = window[XMLHTTP] = function() {
         xhr.setRequestHeader(header, value);
       }
       if (window[FormData] && request.body instanceof window[FormData]) {
-        console.log("form data");
-        xhr.setRequestHeader("multipart/form-data");
         request.body = request.body.fd;
       }
+      xhr.setRequestHeader("Content-Type", "multipart/form-data");
       xhr.send(JSON.stringify(request.body));
     };
     hooks = xhook.listeners(BEFORE);
