@@ -415,6 +415,8 @@ XHookHttpRequest = window[XMLHTTP] = function() {
         xhr.setRequestHeader(header, value);
       }
       if (window[FormData] && request.body instanceof window[FormData]) {
+        console.log("form data");
+        xhr.setRequestHeader("multipart/form-data");
         request.body = request.body.fd;
       }
       xhr.send(JSON.stringify(request.body));
